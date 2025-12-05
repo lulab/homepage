@@ -1,3 +1,3 @@
 ---
-redirect_to: "http://lulab.github.io/mkdocs/people/join-us"
+redirect_to: "http://lulab.github.io/mkdocs/people/open"
 ---
