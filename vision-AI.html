@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lu LAB @ Tsinghua University - VISION & STRATEGY</title>
+    <style>
+        :root {
+            --tsinghua-purple: #701070;
+            --academic-blue: #0A3663;
+            --text-dark: #2C3E50;
+            --bg-light: #F8FAFC;
+            --accent-cyan: #00A3E0;
+            --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans CJK SC", sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--academic-blue) 0%, #051B33 100%);
+            color: white;
+            text-align: center;
+            padding: 5rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            margin: 0;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+
+        header h2 {
+            font-size: 1.8rem;
+            color: var(--accent-cyan);
+            margin: 1rem 0 2rem 0;
+            font-weight: 400;
+        }
+
+        .motto {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            padding-top: 1.5rem;
+            color: #E2E8F0;
+        }
+
+        .motto span {
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: -3rem auto 4rem auto;
+            padding: 0 1.5rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .nav-outline {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: var(--card-shadow);
+            margin-bottom: 3rem;
+            border-left: 5px solid var(--accent-cyan);
+        }
+
+        .nav-outline h3 {
+            margin-top: 0;
+            color: var(--academic-blue);
+        }
+
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .nav-item {
+            background: #F1F5F9;
+            padding: 1.2rem;
+            border-radius: 8px;
+            font-weight: bold;
+            color: var(--academic-blue);
+        }
+
+        .slide-section {
+            background: white;
+            border-radius: 12px;
+            padding: 3rem;
+            margin-bottom: 2.5rem;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .slide-section:hover {
+            transform: translateY(-5px);
+        }
+
+        .slide-badge {
+            background-color: var(--academic-blue);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        h2.section-title {
+            color: var(--academic-blue);
+            font-size: 2rem;
+            margin-top: 0;
+            border-bottom: 2px solid #E2E8F0;
+            padding-bottom: 0.8rem;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.2rem;
+            margin-top: 1.5rem;
+        }
+
+        .card {
+            background: #F8FAFC;
+            border-radius: 8px;
+            padding: 1.5rem;
+            border-top: 4px solid var(--academic-blue);
+        }
+
+        .card.warning {
+            border-top-color: #E63946;
+            background-color: #FFF5F5;
+        }
+
+        .card.accent {
+            border-top-color: var(--accent-cyan);
+            background-color: #F0F9FF;
+        }
+
+        .highlight-box {
+            background: linear-gradient(to right, #EDF2F7, #E2E8F0);
+            padding: 1.5rem;
+            border-left: 4px solid var(--academic-blue);
+            border-radius: 0 8px 8px 0;
+            margin: 1.5rem 0;
+            font-style: italic;
+        }
+
+        ul {
+            padding-left: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-banner {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: #051B33;
+            color: white;
+            margin-top: 5rem;
+        }
+
+        .footer-links a {
+            color: var(--accent-cyan);
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        .quote-author {
+            text-align: right;
+            font-weight: bold;
+            color: #718096;
+            margin-top: 0.5rem;
+        }
+
+        .table-compare {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1.5rem;
+        }
+
+        .table-compare th, .table-compare td {
+            border: 1px solid #E2E8F0;
+            padding: 1rem;
+            text-align: left;
+        }
+
+        .table-compare th {
+            background-color: var(--academic-blue);
+            color: white;
+        }
+
+        .table-compare tr:nth-child(even) {
+            background-color: #F8FAFC;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Lu LAB @ Tsinghua University</h1>
+        <h2>VISION & STRATEGY</h2>
+        <div class="motto">
+            <span>理解生命 • 影响医学</span><br><br>
+            Build Questions &bull; Build People &bull; Build a Field<br>
+            培养科学家，而不仅仅是发表论文 | 平衡毕业压力和大的科研目标 | 共同成长的科研共同体
+        </div>
+    </header>
+
+    <div class="container">
+
+        <!-- 导航大纲 -->
+        <div class="nav-outline">
+            <h3>战略架构布局 (Strategic Outline)</h3>
+            <div class="nav-grid">
+                <div class="nav-item">01 目标优化：未来科研中真正重要的</div>
+                <div class="nav-item">02 实验室文化优化：学生成长路线与导师任务</div>
+                <div class="nav-item">03 课题优化：科研课题架构的优化</div>
+            </div>
+        </div>
+
+        <!-- 核心板块 01 -->
+        <div class="slide-section">
+            <span class="slide-badge">PART 01</span>
+            <h2 class="section-title">目标优化：未来科研中真正重要的</h2>
+            
+            <div class="grid-2">
+                <div class="card accent">
+                    <h3>AI 时代的范式升级</h3>
+                    <ul>
+                        <li><strong>理念跨越：</strong> 从 “AI + 生物” 走向 <strong>Programmable Biology System</strong></li>
+                        <li><strong>科研路径：</strong> 从“申请项目-做课题-发文章”的传统闭环，升级为重新<strong>“定义问题”</strong></li>
+                        <li><strong>核心价值：</strong> 构建 <strong>Latent Biological State Model（隐性生物状态模型）</strong>—— 通过有限观测重建复杂生命系统状态的信息学范式</li>
+                        <li><strong>AI 的本质：</strong> 求解生命系统的“反问题”</li>
+                    </ul>
+                </div>
+
+                <div class="card warning">
+                    <h3>需要避免的陷阱：拒绝跟风</h3>
+                    <p>目前大量实验室在机械化地套用 Transformer、套用 Diffusion、跑 Benchmark、发同质化 Paper。这类工作未来会迅速贬值。</p>
+                    <p><strong>真正的壁垒在于：</strong> <span style="color: #E63946; font-weight: bold;">独特数据 + 高质量实验反馈 + 长期问题</span>，而非模型本身。</p>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                “AI × RNA × programmable therapeutics 这个方向未来10年非常可能是爆发点。你的背景其实 surprisingly match。”
+            </div>
+
+            <div class="grid-2">
+                <div class="card">
+                    <h3>从观察走向编程</h3>
+                    <p><strong>Biology 正在从“观察科学” 变成“可编程科学”</strong></p>
+                    <p>未来真正重要的不是最会讲机制故事的人，而是能把生物学变成<strong>“可设计系统”</strong>的人。RNA 很可能是其中最适合突破的入口之一。</p>
+                </div>
+                <div class="card accent">
+                    <h3>核心长期问题</h3>
+                    <p><strong>生命系统如何通过 RNA 感知、表征和调控自身？我们是否可以编程这个系统？</strong></p>
+                    <div class="grid-4" style="margin-top:0.5rem;">
+                        <div style="text-align:center;"><strong>State</strong><br><small>状态如何形成</small></div>
+                        <div style="text-align:center;"><strong>Information</strong><br><small>状态如何编码</small></div>
+                        <div style="text-align:center;"><strong>Dynamics</strong><br><small>状态如何转变</small></div>
+                        <div style="text-align:center;"><strong>Control</strong><br><small>状态如何调控</small></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 核心板块 02 -->
+        <div class="slide-section">
+            <span class="slide-badge">PART 02</span>
+            <h2 class="section-title">实验室文化优化：学生成长路线和导师的任务</h2>
+            
+            <div class="card accent" style="margin-bottom: 1.5rem;">
+                <h3>科研母体：共同成长的科研共同体</h3>
+                <p>建设一个高标准、高支持的生态。在这里可以讨论失败、可以承认不懂、可以提幼稚问题、可以慢慢成长——这对于激发真正的创造力至关重要。</p>
+                <p><strong>组织变革：</strong>PI 不应过于关注微观细节，更应致力于建设统一的代码、实验和数据基础设施。</p>
+            </div>
+
+            <div class="grid-2">
+                <div class="card">
+                    <h3>学生成长：从压力驱动转向成长驱动</h3>
+                    <p>生信研究者的演进轨迹：<strong>会跑分析 &rarr; 会解释结果 &rarr; 会质疑数据 &rarr; 会定义问题 &rarr; 会建立理论</strong></p>
+                    <ul>
+                        <li><strong>可视化成长轨迹：</strong> 阶段性肯定其思考能力的提升，而不仅是奖励最终的 Paper。</li>
+                        <li><strong>及时的微小成功：</strong> 通过精心切分的阶段性产出，保持清晰的成长步伐。</li>
+                        <li><strong>智识归属感 (Intellectual Ownership)：</strong> 引导学生参与问题定义，而非作为纯粹的执行工具。</li>
+                    </ul>
+                </div>
+
+                <div class="card warning">
+                    <h3>导师的任务：能力升级与风险防范</h3>
+                    <ul>
+                        <li><strong>防止安全感丧失：</strong> 长期模糊的大问题易让学生焦虑，须防范连续失败摧毁科研信心。</li>
+                        <li><strong>避免管理手段失效：</strong> 严禁过度依赖催促、比较和考核压力，防止学生走向保守避险模式。</li>
+                        <li><strong>大科学问题下的子项目体系：</strong> 通过“一个长期大科学问题” + “多个可发表/毕业的子问题”的共享机制设计，让学生共享数据和理论框架，承担不同难度的子工作。</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 核心板块 03 -->
+        <div class="slide-section">
+            <span class="slide-badge">PART 03</span>
+            <h2 class="section-title">课题优化：科研课题架构与科学聚焦</h2>
+            
+            <p style="font-size: 1.1rem; font-weight: bold; color: var(--academic-blue);">
+                一个核心目标：Predictive & Programmable Biology Systems<br>
+                两大主线、三个方向的有机闭环：
+            </p>
+
+            <div class="grid-4">
+                <div class="card" style="border-top-color: #00A3E0;">
+                    <h4>1. cfRNA Sensing</h4>
+                    <p>负责感知系统状态（Sensing System State），发掘外周血中的高维连续动态投影信号。</p>
+                </div>
+                <div class="card" style="border-top-color: #701070;">
+                    <h4>2. RNA Perturbation</h4>
+                    <p>负责干预与控制系统状态（Perturbing System State），设计可编程的 siRNA/ASO 等工具。</p>
+                </div>
+                <div class="card" style="border-top-color: #2A9D8F;">
+                    <h4>3. Artificial Intelligence</h4>
+                    <p>作为中间连接（状态模型与推断），学习状态转移规律，引导理性工具设计。</p>
+                </div>
+                <div class="card" style="border-top-color: #E63946;">
+                    <h4>4. Closed-Loop</h4>
+                    <p><strong>干湿实验共生：</strong><br>Design &rarr; Synthesis &rarr; Assay &rarr; Feedback &rarr; Re-design</p>
+                </div>
+            </div>
+
+            <h3>深入剖析：为什么选择下一代 cfRNA 技术？</h3>
+            <table class="table-compare">
+                <thead>
+                    <tr>
+                        <th>考察维度</th>
+                        <th>传统的 cfDNA 技术 (突变/甲基化)</th>
+                        <th>下一代 cfRNA 技术 (转录组投影)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>早期丰度 (Shedding)</strong></td>
+                        <td>早期肿瘤释放极少，Stage I 检测极其困难</td>
+                        <td>通过免疫激活、间质响应等系统放大机制释放信号</td>
+                    </tr>
+                    <tr>
+                        <td><strong>稀疏度</strong></td>
+                        <td>突变位点信号极其稀疏，需要极深深度测序</td>
+                        <td>全转录组表达、剪接、片段化模式提供高维连续信号</td>
+                    </tr>
+                    <tr>
+                        <td><strong>系统状态表达</strong></td>
+                        <td>只能反映 DNA 的存在性，难以反映功能和代谢状态</td>
+                        <td>动态生理状态投影：完美捕获微环境重塑与应激状态</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="grid-2" style="margin-top: 2rem;">
+                <div class="card">
+                    <h3>cfRNA 学术突破的四个前沿方向</h3>
+                    <ul>
+                        <li><strong>Cell-of-Origin (状态级来源解卷积)：</strong> 解析出细胞所处的具体状态（如 stressed 肝细胞、senescent 间质细胞）。</li>
+                        <li><strong>Pre-disease Ecosystem Signals (癌症前生态信号)：</strong> 捕获突变发生前，宿主系统的免疫重连与应激信号。</li>
+                        <li><strong>cfRNA Fragmentomics (片段组学)：</strong> 通过 AI 学习 RNA 裁剪断裂机制，挖掘巨大的隐藏信息量。</li>
+                        <li><strong>cfRNA Foundation Model (基座大模型)：</strong> 构建融合序列、结构、降解速率与循环动力学的统一表征模型。</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>RNA Perturbation 学术突破的前沿方向</h3>
+                    <ul>
+                        <li><strong>构建 siRNA/ASO 的“统一理论”：</strong> 统一考虑二级结构、RBP 保护、Turnover、细胞状态与 Ago loading 动力学，建立预测框架。</li>
+                        <li><strong>Perturb-seq + RNA LM (世界模型)：</strong> 积累大规模、高质量的扰动响应图谱，构建扰动感知大模型。</li>
+                        <li><strong>Cell-state programmable RNA therapeutics：</strong> 操纵多个 Targets，精准推动细胞脱离病理状态（如多靶点逆转 T 细胞耗竭）。</li>
+                        <li><strong>RNA Delivery 的“可预测性”：</strong> 用 AI 解决涉及化学、序列、膜交互和组织特异性的高维递送瓶颈。</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer-banner">
+        <h3>The Next 10 Years: From Descriptive RNA Biology to Programmable RNA Medicine</h3>
+        <p>不要把自己定义成“生信PI”，你更应该逐渐变成：<strong>RNA Systems Engineer</strong></p>
+        <div class="footer-links" style="margin-top: 2rem;">
+            <a href="http://www.ncRNAlab.org" target="_blank">www.ncRNAlab.org</a> | 
+            <a href="http://lulab.life.tsinghua.edu.cn" target="_blank">lulab.life.tsinghua.edu.cn</a>
+        </div>
+        <p style="margin-top: 3rem; font-size: 0.9rem; color: #718096;">知易行难 • 行胜于言 • 知行合一</p>
+    </div>
+
+</body>
+</html>
