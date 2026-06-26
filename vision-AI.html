@@ -95,6 +95,13 @@
             border-radius: 8px;
             font-weight: bold;
             color: var(--academic-blue);
+            cursor: pointer;
+            transition: background 0.2s ease, transform 0.2s ease;
+        }
+
+        .nav-item:hover {
+            background: #E2E8F0;
+            transform: translateY(-2px);
         }
 
         .slide-section {
@@ -196,6 +203,43 @@
             text-decoration: underline;
         }
 
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 48px;
+            height: 48px;
+            background: var(--academic-blue);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.2s ease, background 0.2s ease;
+            z-index: 100;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: var(--tsinghua-purple);
+            transform: translateY(-3px);
+        }
+
+        .back-to-top svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+        }
+
         .quote-author {
             text-align: right;
             font-weight: bold;
@@ -246,14 +290,14 @@
         <div class="nav-outline">
             <h3>战略架构布局 (Strategic Outline)</h3>
             <div class="nav-grid">
-                <div class="nav-item"><span class="slide-badge">PART 01</span><br>目标优化：未来科研中真正重要的</div>
-                <div class="nav-item"><span class="slide-badge">PART 02</span><br>实验室文化优化：学生成长路线与导师任务</div>
-                <div class="nav-item"><span class="slide-badge">PART 03</span><br>课题优化：科研课题架构的优化</div>
+                <div class="nav-item" onclick="document.getElementById('part-01').scrollIntoView({behavior: 'smooth'})"><span class="slide-badge">PART 01</span><br>目标优化：未来科研中真正重要的</div>
+                <div class="nav-item" onclick="document.getElementById('part-02').scrollIntoView({behavior: 'smooth'})"><span class="slide-badge">PART 02</span><br>实验室文化优化：学生成长路线与导师任务</div>
+                <div class="nav-item" onclick="document.getElementById('part-03').scrollIntoView({behavior: 'smooth'})"><span class="slide-badge">PART 03</span><br>课题优化：科研课题架构的优化</div>
             </div>
         </div>
 
         <!-- 核心板块 01 -->
-        <div class="slide-section">
+        <div id="part-01" class="slide-section">
             <span class="slide-badge">PART 01</span>
             <h2 class="section-title">目标优化：未来科研中真正重要的</h2>
             
@@ -299,7 +343,7 @@
         </div>
 
         <!-- 核心板块 02 -->
-        <div class="slide-section">
+        <div id="part-02" class="slide-section">
             <span class="slide-badge">PART 02</span>
             <h2 class="section-title">实验室文化优化：学生成长路线和导师的任务</h2>
             
@@ -332,7 +376,7 @@
         </div>
 
         <!-- 核心板块 03 -->
-        <div class="slide-section">
+        <div id="part-03" class="slide-section">
             <span class="slide-badge">PART 03</span>
             <h2 class="section-title">课题优化：科研课题架构与科学聚焦</h2>
             
@@ -419,6 +463,28 @@
         </div>
         <p style="margin-top: 3rem; font-size: 0.9rem; color: #718096;">知易行难 • 行胜于言 • 知行合一</p>
     </div>
+
+    <button class="back-to-top" id="backToTop" aria-label="回到顶部">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 4l-8 8h5v8h6v-8h5z"/>
+        </svg>
+    </button>
+
+    <script>
+        const backToTop = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
 
 </body>
 </html>
