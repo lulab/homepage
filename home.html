@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lu Lab @ Tsinghua | 清华大学鲁志实验室</title>
+    <style>
+        /* ==========================================
+           1. 全局设计系统 (Design System)
+           ========================================== */
+        :root {
+            --bg-base: #f4f6f8;
+            --bg-surface: #ffffff;
+            --academic-blue: #0A3663;
+            --bg-hero: linear-gradient(135deg, var(--academic-blue) 0%, #051B33 100%);
+            --hero-text: #f8fafc;
+            --hero-muted: #94a3b8;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --accent-primary: #0284c7;
+            --accent-secondary: #0f766e;
+            --border-color: #e2e8f0;
+            --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+            --card-hover: 0 10px 30px rgba(2, 132, 199, 0.06);
+            --pill-bg: rgba(255, 255, 255, 0.08);
+            --nav-bg: rgba(255, 255, 255, 0.85);
+            --tag-bg: rgba(2, 132, 199, 0.08);
+            --tag-text: #0284c7;
+            --rna-base-a: rgba(56, 189, 248, 0.55);
+            --rna-base-u: rgba(244, 63, 94, 0.55); /* 赋予U粉红流光色 */
+            --rna-base-c: rgba(52, 211, 153, 0.55);
+            --rna-base-g: rgba(251, 191, 36, 0.55);
+            --bio-info: rgba(255, 255, 255, 0.7);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-base);
+            color: var(--text-main);
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: var(--accent-primary);
+            text-decoration: none;
+        }
+        a:hover {
+            color: var(--accent-secondary);
+        }
+
+        /* ==========================================
+           2. 顶部导航栏 (Header)
+           ========================================== */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            background: var(--nav-bg);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand-logo {
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            color: white;
+            font-weight: bold;
+            font-size: 1.1rem;
+            padding: 6px 14px;
+            border-radius: 8px;
+            letter-spacing: 0.5px;
+        }
+
+        .brand-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        nav a {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-muted);
+        }
+        nav a:hover, nav a.active {
+            color: var(--accent-primary);
+        }
+
+        .theme-toggle-btn {
+            background: var(--tag-bg);
+            border: none;
+            color: var(--tag-text);
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* ==========================================
+           3. 巨幕展示区 (Hero Block) & 融于背景的生信数据流
+           ========================================== */
+        .hero-block {
+            background: var(--bg-hero);
+            color: var(--hero-text);
+            padding: 160px 24px 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .hero-left h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -1px;
+            margin-bottom: 8px;
+        }
+
+        .hero-left .subtitle {
+            font-size: 1.6rem;
+            font-weight: 400;
+            color: var(--accent-primary);
+            margin-bottom: 24px;
+        }
+
+        .hero-left .description {
+            font-size: 1.1rem;
+            color: var(--hero-muted);
+            max-width: 580px;
+            margin-bottom: 30px;
+        }
+
+        .hero-tags {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .hero-tag {
+            background: var(--pill-bg);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: var(--hero-text);
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+        }
+
+        /* 纯生信无框融合容器：无边框无背景，完全和Hero深蓝大背景贴合 */
+        .hero-right {
+            position: relative;
+            width: 260px;
+            height: 180px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            padding: 10px;
+            justify-self: end;
+            right: 120px;
+            border-radius: 10%;
+        }
+
+        /* 水平流动的多行 RNA 碱基流与生信标记 */
+        .sequence-lane {
+            display: flex;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.05rem;
+            font-weight: 700;
+            letter-spacing: 5px;
+            line-height: 1.9;
+            white-space: nowrap;
+            user-select: none;
+        }
+
+        /* 精准降低高阶透明度，使其和谐地融入卡片中 */
+        .base-a { color: var(--rna-base-a); }
+        .base-u { color: var(--rna-base-u); } /* T全面换成U */
+        .base-c { color: var(--rna-base-c); }
+        .base-g { color: var(--rna-base-g); }
+
+        /* 高级生信学术标记（Q30分数、质控、配对括号、比对连接符） */
+        .bio-bracket { color: var(--bio-info); font-weight: 800; background: rgba(255, 255, 255, 0.08); padding: 0 2px; border-radius: 3px; }
+        .bio-match { color: #10b981; opacity: 0.9; font-weight: bold; }
+        .bio-score { font-size: 0.75rem; color: #a855f7; vertical-align: super; font-family: sans-serif; opacity: 0.85; }
+        .bio-pipeline { color: #f97316; font-style: italic; opacity: 0.85; }
+
+        /* 交错无限循环滚动动画 */
+        .lane-forward {
+            animation: scroll-forward 38s linear infinite;
+        }
+        .lane-reverse {
+            animation: scroll-reverse 42s linear infinite;
+        }
+
+        @keyframes scroll-forward {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-33.333%); }
+        }
+        @keyframes scroll-reverse {
+            0% { transform: translateX(-33.333%); }
+            100% { transform: translateX(0); }
+        }
+
+
+
+        /* ==========================================
+           4. 底部多栏布局 (Multi-column Dashboard)
+           ========================================== */
+        .dashboard {
+            max-width: 1300px;
+            margin: -40px auto 60px;
+            padding: 0 24px;
+            position: relative;
+            z-index: 10;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr 1fr;
+            gap: 24px;
+        }
+
+        .dashboard-card {
+            background-color: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 28px;
+            box-shadow: var(--card-shadow);
+        }
+        .dashboard-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--card-hover);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .card-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+            text-transform: uppercase;
+            color: var(--text-main);
+        }
+
+        .card-more {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--accent-primary);
+        }
+
+        .research-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+        }
+
+        .research-item {
+            background: var(--bg-base);
+            padding: 20px;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            border: 1px solid transparent;
+        }
+        .research-item:hover {
+            border-color: var(--accent-primary);
+            background: var(--bg-surface);
+        }
+
+        .research-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            background: var(--tag-bg);
+            color: var(--tag-text);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .research-name {
+            font-size: 0.95rem;
+            font-weight: 700;
+        }
+
+        .research-desc {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        .research-bullets {
+            margin: 4px 0 0;
+            padding-left: 1rem;
+        }
+
+        .research-bullets li {
+            margin-bottom: 4px;
+        }
+
+        .col-middle {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .goals-list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .goal-item {
+            display: flex;
+            gap: 12px;
+            padding: 14px 0;
+            border-bottom: 1px dashed var(--border-color);
+        }
+
+        .goal-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .goal-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            background: var(--tag-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+
+        .goal-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+            color: var(--text-main);
+        }
+
+        .goal-desc {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            line-height: 1.45;
+        }
+
+        .people-preview {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+        .people-preview2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .member-avatar-box {
+            background: var(--bg-base);
+            aspect-ratio: 1;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border: 1px solid var(--border-color);
+            color: var(--text-muted);
+        }
+        .member-avatar-box span {
+            font-size: 1.3rem;
+            margin-bottom: 2px;
+        }
+        .member-avatar-box:hover {
+            border-color: var(--accent-primary);
+            color: var(--accent-primary);
+        }
+
+        .pub-list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .pub-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .pub-journal {
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: var(--accent-secondary);
+            text-transform: uppercase;
+            font-family: monospace;
+            background: var(--tag-bg);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        .pub-detail {
+            font-size: 0.85rem;
+            color: var(--text-main);
+            flex: 1;
+        }
+
+        .pub-arrow {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .news-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .news-node {
+            display: flex;
+            gap: 16px;
+        }
+
+        .news-date-badge {
+            font-family: monospace;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            white-space: nowrap;
+            padding-top: 2px;
+        }
+
+        .news-body {
+            font-size: 0.85rem;
+            color: var(--text-main);
+            border-bottom: 1px dashed var(--border-color);
+            padding-bottom: 12px;
+            flex: 1;
+        }
+
+        .news-node:last-child .news-body {
+            border-bottom: none;
+        }
+
+        .quick-connect {
+            margin-top: 16px;
+            display: flex;
+            justify-content: space-between;
+            background: var(--bg-base);
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 0.8rem;
+        }
+
+        /* ==========================================
+           5. 页脚部分 (Footer)
+           ========================================== */
+        footer {
+            background-color: var(--bg-surface);
+            border-top: 1px solid var(--border-color);
+            padding: 40px 24px;
+        }
+
+        .footer-grid {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr;
+            gap: 40px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .footer-col h4 {
+            color: var(--text-main);
+            margin-bottom: 16px;
+            font-size: 0.95rem;
+        }
+
+        .footer-col p {
+            margin-bottom: 6px;
+        }
+
+        .copyright {
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* ==========================================
+           6. 响应式适配 (Responsive Design)
+           ========================================== */
+        @media (max-width: 1100px) {
+            .dashboard {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 12px;
+            }
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero-left .description {
+                margin: 0 auto 24px;
+            }
+            .hero-tags {
+                justify-content: center;
+            }
+            .hero-right {
+                display: none; /* 移动端精简，隐藏序列以优化体验 */
+            }
+            .dashboard {
+                grid-template-columns: 1fr;
+                margin-top: 20px;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 导航栏 -->
+    <header>
+        <div class="nav-container">
+            <div class="brand">
+                <div class="brand-logo">THU</div>
+                <div class="brand-title">Lu Lab</div>
+            </div>
+            <div class="nav-right">
+                <nav>
+                    <ul>
+                        <li><a href="/" class="active">Home</a></li>
+                        <li><a href="https://mkdocs.ncrnalab.org/projects/proj/">Projects</a></li>
+                        <li><a href="https://mkdocs.ncrnalab.org/courses/">Courses</a></li>
+                        <li><a href="https://mkdocs.ncrnalab.org/publications/pub/">Publications</a></li>
+                        <li><a href="https://mkdocs.ncrnalab.org/people/">People</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- 巨幕展示区 -->
+    <section class="hero-block">
+        <div class="hero-container">
+            <div class="hero-left">
+                <h1>LU LAB @ TSINGHUA UNIVERSITY</h1>
+                <div>
+                    <span class="subtitle"><b>AI</b> for Biology & Medicine</span>
+                    <br>
+                    <span class="description" style="font-weight:500; display:inline-block; margin-top:8px;">理解生命 • 影响医学</span>
+                </div>
+                <div class="description">
+                    Unraveling the complexities of the noncoding genome. Designing next-generation diagnostics & therapeutics using Bioinformatics and Artificial Intelligence.
+                    <br>
+                </div>
+                <div class="hero-tags">                    
+                    <span class="hero-tag">💻 Bioinformatics</span>
+                    <span class="hero-tag">🧬 RNA Biology</span>
+                    <span class="hero-tag">🩺 Precision Medicine</span>
+                    <a href="https://www.ncrnalab.org/home/ai/" class="hero-tag">💡 Artificial Intelligence</a>
+                </div>
+            </div>
+            
+            <!-- 右侧：无边框完美隐入、高阶半透明的生信 RNA 算法流动矩阵 -->
+            <div class="hero-right">
+                <div class="sequence-lane lane-forward">
+                    <span class="base-a">A</span><span class="base-u">U</span><span class="base-g">G</span><span class="base-c">C</span><span class="bio-bracket">((..))</span><span class="base-g">G</span><span class="base-a">A</span><span class="base-u">U</span><span class="bio-match">||||</span><span class="base-c">C</span><span class="base-a">A</span><span class="base-g">G</span><span class="bio-score">Q30</span><span class="base-u">U</span><span class="base-c">C</span><span class="base-a">A</span><span class="base-g">G</span><span class="base-u">U</span><span class="base-g">G</span><span class="base-c">C</span><span class="bio-pipeline">>pipe</span><span class="base-a">A</span><span class="base-u">U</span><span class="base-g">G</span>
+                </div>
+                <div class="sequence-lane lane-reverse">
+                    <span class="base-c">C</span><span class="base-g">G</span><span class="base-a">A</span><span class="bio-score">p&lt;0.01</span><span class="base-u">U</span><span class="base-c">C</span><span class="base-g">G</span><span class="base-u">U</span><span class="base-a">A</span><span class="bio-bracket">[[[[</span><span class="base-g">G</span><span class="base-c">C</span><span class="base-u">U</span><span class="base-a">A</span><span class="bio-match">::::</span><span class="base-g">G</span><span class="base-c">C</span><span class="base-u">U</span><span class="base-a">A</span><span class="base-c">C</span><span class="base-g">G</span><span class="base-a">A</span><span class="base-u">U</span><span class="base-c">C</span>
+                </div>
+                <div class="sequence-lane lane-forward">
+                    <span class="base-g">G</span><span class="base-c">C</span><span class="base-u">U</span><span class="base-a">A</span><span class="base-g">G</span><span class="bio-match">||||</span><span class="base-c">C</span><span class="base-a">A</span><span class="base-u">U</span><span class="base-g">G</span><span class="base-c">C</span><span class="bio-bracket">...)))</span><span class="base-u">U</span><span class="base-a">A</span><span class="base-g">G</span><span class="base-u">U</span><span class="base-c">C</span><span class="bio-score">log2FC</span><span class="base-g">G</span><span class="base-a">A</span><span class="base-u">U</span><span class="base-g">G</span><span class="base-c">C</span><span class="base-u">U</span><span class="base-a">A</span>
+                </div>
+                <div class="sequence-lane lane-reverse">
+                    <span class="base-u">U</span><span class="base-a">A</span><span class="base-g">G</span><span class="base-c">C</span><span class="base-u">U</span><span class="bio-pipeline">_align</span><span class="base-a">A</span><span class="base-g">G</span><span class="base-c">C</span><span class="base-u">U</span><span class="base-g">G</span><span class="base-c">C</span><span class="base-a">A</span><span class="base-u">U</span><span class="base-g">G</span><span class="bio-bracket">(((((</span><span class="base-c">C</span><span class="base-a">A</span><span class="base-u">U</span><span class="base-g">G</span><span class="base-c">C</span><span class="base-a">A</span><span class="base-u">U</span><span class="base-a">A</span><span class="base-g">G</span><span class="base-c">C</span>
+                </div>
+                <div class="sequence-lane lane-forward">
+                    <span class="base-a">A</span><span class="base-g">G</span><span class="base-u">U</span><span class="base-c">C</span><span class="bio-score">FDR=0</span><span class="base-a">A</span><span class="base-g">G</span><span class="base-u">U</span><span class="base-c">C</span><span class="base-g">G</span><span class="base-a">A</span><span class="base-u">U</span><span class="bio-match">::::</span><span class="base-c">C</span><span class="base-g">G</span><span class="base-a">A</span><span class="base-u">U</span><span class="base-c">C</span><span class="base-g">G</span><span class="base-a">A</span><span class="base-u">U</span><span class="bio-bracket">]]]]</span><span class="base-c">C</span><span class="base-g">G</span><span class="base-a">A</span><span class="base-a">A</span><span class="base-g">G</span>
+                </div>
+                <div class="sequence-lane lane-reverse">
+                    <span class="base-g">G</span><span class="base-a">A</span><span class="base-c">C</span><span class="base-u">U</span><span class="bio-pipeline">>align</span><span class="base-u">U</span><span class="base-a">A</span><span class="base-g">G</span><span class="base-c">C</span><span class="bio-bracket">((..))</span><span class="base-c">C</span><span class="base-g">G</span><span class="base-a">A</span><span class="base-u">U</span><span class="bio-match">||||</span><span class="base-g">G</span><span class="base-c">C</span><span class="base-u">U</span><span class="base-a">A</span><span class="base-g">G</span><span class="base-c">C</span>
+                </div>
+                <div class="sequence-lane lane-forward">
+                    <span class="base-a">A</span><span class="base-u">U</span><span class="base-c">C</span><span class="base-g">G</span><span class="bio-score">Q20</span><span class="base-a">A</span><span class="base-g">G</span><span class="base-u">U</span><span class="base-c">C</span><span class="bio-bracket">[[[[</span><span class="base-a">A</span><span class="base-c">C</span><span class="base-g">G</span><span class="base-u">U</span><span class="bio-match">::::</span><span class="base-c">C</span><span class="base-g">G</span><span class="base-a">A</span><span class="base-u">U</span><span class="base-c">C</span><span class="base-g">G</span><span class="base-a">A</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 底部多栏控制面板 -->
+    <main class="dashboard">
+        <section class="dashboard-card">
+            <div class="card-header">
+                <h2 class="card-title">Our Mission</h2>
+            </div>
+            <div class="research-grid">
+                <div class="research-item">
+                    <div class="research-icon">🎯</div>
+                    <div class="research-desc">Our lab focuses on advancing innovative bioinformatics technologies and practicing evidence-based precision medicine for complex diseases such as cancer and autoimmune diseases.
+
+We utilize noncoding RNA (ncRNA) centered multi-omics data, together with Artificial Intelligence, to study how the language of life is encoded within structured nucleic acids, and how they interact, communicate, and regulate one another within dynamic biological networks. Ultimately, this will help us understand and cure human diseases, know and improve ourselves.
+
+<br><br>我们致力于发展生物信息学技术，并探索其在癌症、自身免疫等复杂疾病的精准诊疗上的具体实践:
+<br><br>我们利用非编码RNA为核心的多组学数据，结合人工智能，研究生命的语言是如何被编码在结构化的核酸分子之中，以及它们是如何在一个生命体系中相互交流、彼此调控。
+<br><br>同时，我们将这些技术应用在精准诊疗的具体实践上。“上工治未病”，我们的一个重要使命，是帮助人们更早期的发现和治疗疾病。
+<br><br>我们相信，这种使命感以及为此付出的实践和努力，将帮助我们理解和治疗人类疾病，并最终认识和提高我们自己。
+</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="dashboard-card">
+            <div class="card-header">
+                <h2 class="card-title">Our Research</h2>
+                
+            </div>
+            <div class="goals-list">
+                <div class="goal-item">
+                    <div class="goal-icon">🩺</div>
+                    <div>
+                        <div class="goal-title">Bioinfo-Driven Precision Medicine</div>
+                        <div class="goal-desc">
+                            <ul class="research-bullets">
+                                <li>Cell-free RNA as disease biomarker</li>
+                                <li>Noncoding RNA as immune regulator</li>
+                                <li>Multi-modal data integration</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="goal-item">
+                    <div class="goal-icon">🤖</div>
+                    <div>
+                        <div class="goal-title">AI-driven RNA Modeling & Drug Design</div>
+                        <div class="goal-desc">
+                            <ul class="research-bullets">
+                                <li>RNA structure &amp; drug design</li>
+                                <li>RNA centered interactome</li>
+                                <li>Virtual Cell</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="research-desc">实验室围绕着非编码RNA(ncRNA)主要有两个研究方向: 1）AI驱动的核酸模型和药物设计; 2）生信驱动的精准医疗。
+                </div>
+                <br>
+                <a href="https://mkdocs.ncrnalab.org/projects/proj/" class="card-more">Projects →</a>
+                <a href="https://www.ncrnalab.org/home/software/" class="card-more">Software →</a>
+            </div>
+        </section>
+
+        <section class="dashboard-card">
+            <div class="brand-title card-header">
+                <h2 class="card-title">Our Team</h2>
+            </div>
+            <div class="people-preview">
+                <a href="https://life.tsinghua.edu.cn/info/1034/1298.htm" class="member-avatar-box"><span>🎓</span>PI</a>
+                <a href="https://mkdocs.ncrnalab.org/people/" class="member-avatar-box" style="background:var(--tag-bg); border-color:var(--accent-primary); color:var(--accent-primary);" ><span>🧑‍🎓</span>Ph.D. & Postdoc</a>
+                <a href="https://mkdocs.ncrnalab.org/people/"><div class="member-avatar-box"><span>🧑‍💻</span>Staff</div></a>
+                <a href="https://mkdocs.ncrnalab.org/people/join-us/" class="member-avatar-box" ><span>🧑‍🤝‍🧑</span>Join Us</a>
+            </div>
+            <br><a href="https://mkdocs.ncrnalab.org/people/open/" class="card-more">Collaborate with Us →</a>
+
+        </section>
+    </main>
+
+    <!-- 页脚区 -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Lu Lab @ Tsinghua University</h4>
+                <p>教育部“生物信息学”重点实验室 / 清华大学生命科学学院</p>
+                <p>Biotechnology Building, Tsinghua University, Beijing, China</p>
+            </div>
+            <div class="footer-col">
+                <h4>Contact & Collaborations</h4>
+                <p>✉️ lulab1@tsinghua.edu.cn</p>
+                <p>📞 +86-10-62789217</p>
+            </div>
+            <div class="footer-col">
+                <h4>Geo Location</h4>
+                <p>📍 <a href="https://www.ncrnalab.org/home/map/amap.html" target="_blank">高德地图 (aMap)</a></p>
+                <p>📍 <a href="https://www.ncrnalab.org/home/map/googlemap.html" target="_blank">Google Maps</a></p>
+            </div>
+        </div>
+        <div class="copyright">
+            Copyright © Lu Lab @ Tsinghua. All Rights Reserved.
+        </div>
+    </footer>
+
+</body>
+</html>
