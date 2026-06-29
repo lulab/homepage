@@ -23,8 +23,43 @@
             padding: 0;
         }
 
+        .home-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 100;
+        }
+        .home-btn a {
+            width: 42px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.15);
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .home-btn a:hover {
+            background: rgba(255, 255, 255, 0.95);
+            color: #000;
+        }
+        @media (max-width: 768px) {
+            .home-btn {
+                top: 12px;
+                left: 12px;
+            }
+            .home-btn a {
+                width: 36px;
+                height: 36px;
+                font-size: 17px;
+            }
+        }
+
         header {
-            background: linear-gradient(135deg, var(--academic-blue) 0%, #051B33 100%);
+            background: linear-gradient(135deg, #145586 0%, #0A3663 100%);
             color: white;
             text-align: center;
             padding: 5rem 2rem;
@@ -370,6 +405,7 @@
 <body>
 
     <header>
+        <div class="home-btn"><a href="/home">⌂</a></div>
         <h1>Lu LAB @ Tsinghua University</h1>
         <h2>VISION & STRATEGY</h2>
        
