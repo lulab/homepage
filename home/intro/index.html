@@ -304,6 +304,47 @@
             width: fit-content;
         }
 
+        .hero-badge-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .hero-badge-row .hero-badge {
+            margin-bottom: 0;
+        }
+
+        .ppt-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 4px 12px;
+            background: linear-gradient(135deg, #a855f7, #7c3aed);
+            border-radius: 9999px;
+            color: #ffffff !important;
+            text-decoration: none !important;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 12px rgba(139, 92, 246, 0.4);
+            animation: pptPulse 2s ease-in-out infinite;
+        }
+
+        .ppt-link:hover {
+            transform: scale(1.08) translateY(-1px);
+            box-shadow: 0 6px 20px rgba(139, 92, 246, 0.6);
+            animation: none;
+        }
+
+        .ppt-link svg {
+            filter: drop-shadow(0 1px 1px rgba(0,0,0,0.2));
+        }
+
+        @keyframes pptPulse {
+            0%, 100% { box-shadow: 0 4px 12px rgba(139, 92, 246, 0.4); }
+            50% { box-shadow: 0 4px 20px rgba(139, 92, 246, 0.7); }
+        }
+
         .hero h1 {
             font-size: clamp(2.8rem, 6vw, 4.5rem);
             font-weight: 800;
@@ -966,14 +1007,14 @@
         <button class="menu-toggle-btn" id="menuToggle" aria-label="Toggle Menu">
             <svg style="width: 24px; height: 24px;" viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" fill="currentColor"/></svg>
         </button>
-        <span class="logo-text">Lu Lab</span>
+        <span class="logo-text"><a href="/home" target="_blank">Lu Lab</a></span>
         <div style="width: 24px;"></div>
     </header>
 
     <!-- Sidebar Navigation -->
     <aside id="sidebar">
         <div class="sidebar-header">
-            <h1 class="logo-text">Lu Lab</h1>
+            <h1 class="logo-text"><a href="/home" target="_blank">Lu Lab</a></h1>
             <p class="logo-subtext">Tsinghua University</p>
         </div>
 
@@ -1002,7 +1043,17 @@
     <main>
         <!-- Hero / Home -->
         <section class="hero" id="home">
-            <div class="hero-badge">Tsinghua University · School of Life Sciences</div>
+            <div class="hero-badge-row">
+                <div class="hero-badge">Tsinghua University · School of Life Sciences</div>
+                <a href="https://cloud.tsinghua.edu.cn/d/1e07c4f58c5e42e2832c/" target="_blank" class="ppt-link" title="View Introduction Slides">
+                    <svg style="width: 20px; height: 20px; vertical-align: middle;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                        <line x1="8" y1="21" x2="16" y2="21"/>
+                        <line x1="12" y1="17" x2="12" y2="21"/>
+                    </svg>
+                    <span style="font-size: 0.85rem; font-weight: 700;">PPT</span>
+                </a>
+            </div>
             <h1>Lu Lab <span class="gradient">Introduction</span></h1>
             <div class="hero-tagline">Bioinformatics: AI for Biology & Medicine</div>
             <p class="hero-mission">
