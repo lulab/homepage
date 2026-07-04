@@ -8,10 +8,6 @@
     <meta name="description" content="Tsinghua University Lu Lab — Bioinformatics: AI for Biology & Medicine. We build predictive and programmable RNA systems for precision medicine.">
     <meta name="author" content="Lu Lab">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
     <style>
         :root {
             --bg-primary: #f8fafc;
@@ -19,13 +15,13 @@
             --bg-sidebar: #ffffff;
             --bg-card-hover: #ffffff;
             --border-color: #e2e8f0;
-            --border-hover: rgba(139, 92, 246, 0.4);
+            --border-hover: rgba(20, 85, 134, 0.4);
 
             --text-primary: #0f172a;
             --text-secondary: #475569;
             --text-muted: #94a3b8;
 
-            --accent-purple: #8b5cf6;
+            --accent-purple: #145586;
             --accent-blue: #2563eb;
             --accent-green: #059669;
             --accent-teal: #0d9488;
@@ -44,7 +40,7 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
             background-color: var(--bg-primary);
             color: var(--text-primary);
             overflow-x: hidden;
@@ -65,12 +61,12 @@
             border-radius: 4px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: rgba(139, 92, 246, 0.3);
+            background: rgba(20, 85, 134, 0.3);
         }
 
         /* Typography */
         h1, h2, h3, h4 {
-            font-family: 'Outfit', sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
             font-weight: 700;
             line-height: 1.2;
             color: var(--text-primary);
@@ -94,8 +90,8 @@
         /* Sidebar */
         aside {
             width: var(--sidebar-width);
-            background-color: var(--bg-sidebar);
-            border-right: 1px solid var(--border-color);
+            background-color: #145586;
+            border-right: 1px solid rgba(255, 255, 255, 0.12);
             position: fixed;
             top: 0;
             left: 0;
@@ -108,23 +104,37 @@
 
         .sidebar-header {
             padding: 24px;
-            border-bottom: 1px solid var(--border-color);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
         }
 
         .logo-text {
-            font-family: 'Outfit', sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
             font-size: 1.4rem;
             font-weight: 800;
-            background: var(--gradient-accent);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: #ffffff;
             letter-spacing: -0.5px;
             margin-bottom: 4px;
         }
 
+        .logo-text a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .logo-text a:hover {
+            text-decoration: none;
+        }
+
+        .logo-home-icon {
+            width: 20px;
+            height: 20px;
+            vertical-align: -3px;
+            margin-right: 6px;
+        }
+
         .logo-subtext {
             font-size: 0.75rem;
-            color: var(--text-secondary);
+            color: rgba(255, 255, 255, 0.75);
             text-transform: uppercase;
             letter-spacing: 1.5px;
             font-weight: 600;
@@ -132,25 +142,29 @@
 
         .search-container {
             padding: 16px 24px;
-            border-bottom: 1px solid var(--border-color);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
         }
 
         .search-box {
             width: 100%;
             padding: 10px 16px;
-            background: #f1f5f9;
-            border: 1px solid var(--border-color);
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 8px;
-            color: var(--text-primary);
+            color: #ffffff;
             font-size: 0.9rem;
             transition: all 0.2s;
             outline: none;
         }
 
+        .search-box::placeholder {
+            color: rgba(255, 255, 255, 0.55);
+        }
+
         .search-box:focus {
-            border-color: var(--accent-purple);
-            box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.15);
-            background: #ffffff;
+            border-color: rgba(255, 255, 255, 0.5);
+            box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.18);
         }
 
         .sidebar-menu {
@@ -170,7 +184,7 @@
 
         .menu-section-title {
             font-size: 0.75rem;
-            color: var(--text-muted);
+            color: rgba(255, 255, 255, 0.55);
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -182,7 +196,7 @@
             align-items: center;
             padding: 10px 14px;
             border-radius: 8px;
-            color: var(--text-secondary);
+            color: rgba(255, 255, 255, 0.85);
             text-decoration: none;
             font-size: 0.9rem;
             font-weight: 500;
@@ -191,15 +205,15 @@
         }
 
         .menu-link:hover {
-            color: var(--text-primary);
-            background: #f1f5f9;
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.1);
             padding-left: 18px;
         }
 
         .menu-link.active {
-            color: var(--accent-purple);
-            background: rgba(139, 92, 246, 0.06);
-            border-left-color: var(--accent-purple);
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.15);
+            border-left-color: #ffffff;
             font-weight: 600;
         }
 
@@ -211,8 +225,8 @@
             left: 0;
             right: 0;
             height: 60px;
-            background: var(--bg-sidebar);
-            border-bottom: 1px solid var(--border-color);
+            background: #145586;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
             z-index: 99;
             align-items: center;
             justify-content: space-between;
@@ -222,7 +236,7 @@
         .menu-toggle-btn {
             background: none;
             border: none;
-            color: var(--text-primary);
+            color: #ffffff;
             cursor: pointer;
             font-size: 1.5rem;
             display: flex;
@@ -285,7 +299,7 @@
             right: -10%;
             width: 600px;
             height: 600px;
-            background: radial-gradient(circle, rgba(139, 92, 246, 0.08) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(20, 85, 134, 0.08) 0%, transparent 70%);
             pointer-events: none;
         }
 
@@ -294,8 +308,8 @@
             align-items: center;
             gap: 8px;
             padding: 8px 16px;
-            background: rgba(139, 92, 246, 0.08);
-            border: 1px solid rgba(139, 92, 246, 0.2);
+            background: rgba(20, 85, 134, 0.08);
+            border: 1px solid rgba(20, 85, 134, 0.2);
             border-radius: 9999px;
             color: var(--accent-purple);
             font-size: 0.85rem;
@@ -321,18 +335,18 @@
             align-items: center;
             gap: 4px;
             padding: 4px 12px;
-            background: linear-gradient(135deg, #a855f7, #7c3aed);
+            background: linear-gradient(135deg, #145586, #1e6ba8);
             border-radius: 9999px;
             color: #ffffff !important;
             text-decoration: none !important;
             transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 4px 12px rgba(139, 92, 246, 0.4);
+            box-shadow: 0 4px 12px rgba(20, 85, 134, 0.4);
             animation: pptPulse 2s ease-in-out infinite;
         }
 
         .ppt-link:hover {
             transform: scale(1.08) translateY(-1px);
-            box-shadow: 0 6px 20px rgba(139, 92, 246, 0.6);
+            box-shadow: 0 6px 20px rgba(20, 85, 134, 0.6);
             animation: none;
         }
 
@@ -341,8 +355,8 @@
         }
 
         @keyframes pptPulse {
-            0%, 100% { box-shadow: 0 4px 12px rgba(139, 92, 246, 0.4); }
-            50% { box-shadow: 0 4px 20px rgba(139, 92, 246, 0.7); }
+            0%, 100% { box-shadow: 0 4px 12px rgba(20, 85, 134, 0.4); }
+            50% { box-shadow: 0 4px 20px rgba(20, 85, 134, 0.7); }
         }
 
         .hero h1 {
@@ -401,7 +415,7 @@
 
         .card:hover {
             border-color: var(--border-hover);
-            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.08);
+            box-shadow: 0 10px 30px rgba(20, 85, 134, 0.08);
             transform: translateY(-2px);
         }
 
@@ -440,7 +454,7 @@
             margin-bottom: 16px;
         }
 
-        .card-icon.purple { background: rgba(139, 92, 246, 0.1); color: var(--accent-purple); }
+        .card-icon.purple { background: rgba(20, 85, 134, 0.1); color: var(--accent-purple); }
         .card-icon.blue { background: rgba(37, 99, 235, 0.1); color: var(--accent-blue); }
         .card-icon.teal { background: rgba(13, 148, 136, 0.1); color: var(--accent-teal); }
         .card-icon.cyan { background: rgba(6, 182, 212, 0.1); color: var(--accent-cyan); }
@@ -581,7 +595,7 @@
             margin-bottom: 12px;
         }
 
-        .tag.purple { background: rgba(139, 92, 246, 0.1); color: var(--accent-purple); }
+        .tag.purple { background: rgba(20, 85, 134, 0.1); color: var(--accent-purple); }
         .tag.blue { background: rgba(37, 99, 235, 0.1); color: var(--accent-blue); }
         .tag.teal { background: rgba(13, 148, 136, 0.1); color: var(--accent-teal); }
 
@@ -695,7 +709,7 @@
         }
 
         .stat-number {
-            font-family: 'Outfit', sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
             font-size: 2rem;
             font-weight: 800;
             background: var(--gradient-accent);
@@ -848,7 +862,7 @@
         .contact-email:hover {
             text-decoration: none;
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.3);
+            box-shadow: 0 10px 30px rgba(20, 85, 134, 0.3);
         }
 
         .contact-logos {
@@ -896,7 +910,7 @@
             color: var(--text-primary);
             border-color: var(--accent-purple);
             transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(139, 92, 246, 0.12);
+            box-shadow: 0 6px 20px rgba(20, 85, 134, 0.12);
         }
 
         .scroll-top svg {
@@ -1007,14 +1021,14 @@
         <button class="menu-toggle-btn" id="menuToggle" aria-label="Toggle Menu">
             <svg style="width: 24px; height: 24px;" viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" fill="currentColor"/></svg>
         </button>
-        <span class="logo-text"><a href="/home" target="_blank">Lu Lab</a></span>
+        <span class="logo-text"><a href="/home" ><svg class="logo-home-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>Lu Lab</a></span>
         <div style="width: 24px;"></div>
     </header>
 
     <!-- Sidebar Navigation -->
     <aside id="sidebar">
         <div class="sidebar-header">
-            <h1 class="logo-text"><a href="/home" target="_blank">Lu Lab</a></h1>
+            <h1 class="logo-text"><a href="/home" ><svg class="logo-home-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>Lu Lab</a></h1>
             <p class="logo-subtext">Tsinghua University</p>
         </div>
 
@@ -1042,7 +1056,7 @@
         <section class="hero" id="home">
             <div class="hero-badge-row">
                 <div class="hero-badge">Tsinghua University · School of Life Sciences</div>
-                <a href="https://cloud.tsinghua.edu.cn/d/1e07c4f58c5e42e2832c/" target="_blank" class="ppt-link" title="View Introduction Slides">
+                <a href="https://cloud.tsinghua.edu.cn/d/1e07c4f58c5e42e2832c/"  class="ppt-link" title="View Introduction Slides">
                     <svg style="width: 20px; height: 20px; vertical-align: middle;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
                         <line x1="8" y1="21" x2="16" y2="21"/>
@@ -1055,10 +1069,12 @@
             <div class="hero-tagline">Bioinformatics: AI for Biology & Medicine</div>
             <p class="hero-mission">
                 <strong>Our mission:</strong> We are dedicated to understanding and curing human diseases, and knowing and improving ourselves.
-                我们相信，这种使命感以及为此付出的实践和努力，将帮助我们理解和治疗人类疾病，并最终认识和提高我们自己。
+                <br><strong>理解生命 • 影响医学</strong> 我们相信，这种使命感以及为此付出的实践和努力，将帮助我们理解和治疗人类疾病，并最终认识和提高我们自己。
+                
+                
             </p>
             <p class="hero-mission">
-                理解生命 <strong>•</strong> 影响医学
+                
             </p>
             <div class="hero-affiliations">
                 <span class="affiliation-tag">清华大学</span>
@@ -1076,13 +1092,16 @@
 
             <div class="profile-grid">
                 <div>
-                    <img class="profile-photo" src="img/image26.jpg" alt="Lu Zhi">
+                    <img class="profile-photo" src="person/PI.webp" alt="Lu Zhi">
                 </div>
                 <div class="card">
                     <h3 class="profile-name">鲁志</h3>
                     <div class="profile-role">Zhi John Lu, Ph.D. · Associate Professor</div>
                     <p>
-                        Our lab focuses on advancing innovative <strong>bioinformatics</strong> technologies and practicing evidence-based <strong>precision medicine</strong> for complex diseases like cancer and autoimmune diseases.
+                        
+                        Our lab focuses on advancing innovative bioinformatics technologies and practicing evidence-based precision medicine for complex diseases like cancer and autoimmune diseases.
+                        <br>• Unraveling the complexities of the noncoding genome. 
+                        <br>• Designing next-generation diagnostics & therapeutics using Bioinformatics and Artificial Intelligence.
                     </p>
                     <p>
                         我们实验室致力于发展生物信息学技术，并探索其在癌症、自身免疫疾病等复杂疾病的精准诊疗上的具体实践。我们利用非编码 RNA 为核心的多组学数据，结合人工智能，研究生命的语言是如何被编码在结构化的核酸分子之中，以及它们是如何在一个生命体系中相互交流、彼此调控。
@@ -1110,8 +1129,8 @@
                         </div>
                     </div>
                     <p style="margin-top: 20px;">
-                        <a href="http://lulab.life.tsinghua.edu.cn/" target="_blank">Lab Website</a> ·
-                        <a href="http://www.ncRNAlab.org" target="_blank">Mirror Site</a>
+                        <a href="http://lulab.life.tsinghua.edu.cn/" >Lab Website</a> ·
+                        <a href="http://www.ncRNAlab.org" >Mirror Site</a>
                     </p>
                 </div>
             </div>
@@ -1122,30 +1141,24 @@
             <div class="section-label">Vision & Strategy</div>
             <h2 class="section-title">The Next 10 Years: Predictive & Programmable RNA Systems</h2>
             <p class="section-subtitle">
-                From descriptive RNA biology to programmable and predictive RNA medicine — integrating AI, cfRNA, sRNA, and therapeutics.
-                从“读生物学”到“编程生物学”。
+                <a href="../vision-AI.html" >Vision & Strategy (suggested by chatGPT) →</a>
             </p>
 
             <div class="quote-block">
-                <strong>长期问题：RNA 与生物系统状态之间的映射</strong><br>
-                RNA-mediated sensing and control of biological state
+                <strong>长期问题：RNA 与生物系统状态之间的映射</strong> → 整合 AI技术，RNA 语言与 新一代诊疗方法，建立可预测、可编程的系统生物学。
+                <br><strong>RNA-mediated sensing and control of biological state</strong> → from descriptive to <b>programmable and predictive</b> systems biology — integrating AI techniques, RNA languages and therapeutics.
             </div>
 
             <div class="card-grid-3">
                 <div class="card">
                     <div class="card-icon teal">🧬</div>
                     <h3>State</h3>
-                    <p>状态如何形成？<br>How is biological state formed?</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon purple">📝</div>
-                    <h3>Information</h3>
-                    <p>状态如何编码？<br>How is state encoded in RNA?</p>
+                    <p>状态如何形成和编码？<br>How is biological state formed and coded in RNA?</p>
                 </div>
                 <div class="card">
                     <div class="card-icon blue">⚡</div>
                     <h3>Dynamics</h3>
-                    <p>状态如何转变？<br>How does state transition over time?</p>
+                    <p>状态如何转变？<br>How does state transition over time and space?</p>
                 </div>
                 <div class="card">
                     <div class="card-icon cyan">🎛️</div>
@@ -1174,15 +1187,15 @@
             </div>
 
             <div class="quote-block">
-                “RNA, not DNA, is the computational engine of the cell.”<br>
                 <p class="profile-role">“RNA 而不是 DNA 才是细胞的计算引擎。”</p>
+                “RNA, not DNA, is the computational engine of the cell.”<br>
                  — <em>Scientific American</em>, July 2024
             </div>
 
             <h3 style="margin-top: 48px; margin-bottom: 20px;">Closed-Loop Dynamic Framework</h3>
             <p style="color: var(--text-secondary); margin-bottom: 24px;">
                 Cell-free RNA 负责感知 · RNA Drug 负责干预与控制 · AI 负责推断与预测<br>
-                你未来最关键的战略：“干湿实验共生关系”，不是找人帮验证，而是真正联合设计问题。
+                你未来最关键的战略：“干湿实验共生关系”，不是找人帮验证，而是真正联合设计问题。 -- chatGPT
             </p>
             <div class="loop-grid">
                 <div class="loop-step">
@@ -1217,7 +1230,7 @@
             <h2 class="section-title">RNA Finder · RNA Talk</h2>
             <p class="section-subtitle">
                 Two complementary programs sharing one long-term question: the RNA-mediated sensing and control of biological state.
-            <br><br><a href="https://mkdocs.ncrnalab.org/projects/proj/" target="_blank">Lab Projects →</a>
+            <br><br><a href="https://mkdocs.ncrnalab.org/projects/proj/" >Lab Projects →</a>
             </p>
             
             <div class="feature-row">
@@ -1235,7 +1248,7 @@
                     
                 </div>
                 <div>
-                    <img class="feature-image" src="img/image41.png" alt="RNA Finder research diagram">
+                    <img class="feature-image" src="img/RNAfinder.webp" alt="RNA Finder research diagram">
                 </div>
             </div>
 
@@ -1254,7 +1267,7 @@
 
                 </div>
                 <div>
-                    <img class="feature-image" src="img/image32.png" alt="RNA Talk research diagram">
+                    <img class="feature-image" src="img/RNAi-AIVC.webp" alt="RNA Talk research diagram">
                 </div>
             </div>
 
@@ -1282,6 +1295,7 @@
             <div class="quote-block">
                 <strong>不要变成“AI + 生物”的跟风型实验室。</strong><br>
                 真正有壁垒的是：<strong>独特数据 + 高质量实验反馈 + 长期问题</strong>，而不是模型本身。
+                <br> — chatGPT
             </div>
         </section>
 
@@ -1305,7 +1319,7 @@
                     </ul>
                 </div>
                 <div>
-                    <img class="feature-image" src="img/image27.jpeg" alt="Coding and non-coding RNA">
+                    <img class="feature-image" src="img/RNAlan.webp" alt="Coding and non-coding RNA">
                 </div>
             </div>
 
@@ -1321,7 +1335,7 @@
                     </ul>
                 </div>
                 <div>
-                    <img class="feature-image" src="img/image35.png" alt="RNA interactions">
+                    <img class="feature-image" src="img/RNAtalk.webp" alt="RNA interactions">
                 </div>
             </div>
 
@@ -1386,7 +1400,7 @@
                     </p>
                 </div>
                 <div>
-                    <img class="feature-image" src="img/image46.png" alt="RNA modeling">
+                    <img class="feature-image" src="img/modeling.webp" alt="RNA modeling">
                 </div>
             </div>
 
@@ -1505,44 +1519,44 @@
             <h3 style="margin-top: 48px; margin-bottom: 20px;">Alumni Highlights</h3>
             <div class="portrait-grid">
                 <div class="portrait">
-                    <img src="img/image138.jpeg" alt="李洋">
-                    <div class="portrait-name">李洋</div>
-                    <div class="portrait-role">WashU. Assist. Prof.</div>
-                </div>
-                <div class="portrait">
-                    <img src="img/image134.png" alt="杨扬">
-                    <div class="portrait-name">杨扬</div>
-                    <div class="portrait-role">天津医科大学 教授</div>
-                </div>
-                <div class="portrait">
-                    <img src="img/image136.jpeg" alt="朱昱敏">
-                    <div class="portrait-name">朱昱敏</div>
-                    <div class="portrait-role">南京大学 助理教授</div>
-                </div>
-                <div class="portrait">
-                    <img src="img/image137.jpeg" alt="徐港">
-                    <div class="portrait-name">徐港</div>
-                    <div class="portrait-role">中国农业大学 副教授</div>
-                </div>
-                <div class="portrait">
-                    <img src="img/image132.png" alt="杨禹丞">
+                    <img src="person/image132.webp" alt="杨禹丞">
                     <div class="portrait-name">杨禹丞</div>
-                    <div class="portrait-role">复旦大学 副研究员</div>
+                    <div class="portrait-role">复旦大学 副教授</div>
                 </div>
                 <div class="portrait">
-                    <img src="img/image133.png" alt="胡龙">
+                    <img src="person/image133.webp" alt="胡龙">
                     <div class="portrait-name">胡龙</div>
                     <div class="portrait-role">予果生物 生信总监</div>
                 </div>
                 <div class="portrait">
-                    <img src="img/image135.jpeg" alt="原佳沛">
+                    <img src="person/image134.webp" alt="杨扬">
+                    <div class="portrait-name">杨扬</div>
+                    <div class="portrait-role">天津医科大学 教授</div>
+                </div>
+                <div class="portrait">
+                    <img src="person/image135.webp" alt="原佳沛">
                     <div class="portrait-name">原佳沛</div>
                     <div class="portrait-role">医学科学院 助理教授</div>
                 </div>
                 <div class="portrait">
-                    <img src="img/image139.jpg" alt="马洪丽">
+                    <img src="person/image136.webp" alt="朱昱敏">
+                    <div class="portrait-name">朱昱敏</div>
+                    <div class="portrait-role">南京大学 助理教授</div>
+                </div>
+                <div class="portrait">
+                    <img src="person/image137.webp" alt="徐港">
+                    <div class="portrait-name">徐港</div>
+                    <div class="portrait-role">中国农业大学 副教授</div>
+                </div>
+                <div class="portrait">
+                    <img src="person/image139.webp" alt="马洪丽">
                     <div class="portrait-name">马洪丽</div>
                     <div class="portrait-role">哈工大 副研究员</div>
+                </div>
+                <div class="portrait">
+                    <img src="person/image138.webp" alt="李洋">
+                    <div class="portrait-name">李洋</div>
+                    <div class="portrait-role">WashU. Assist. Prof.</div>
                 </div>
             </div>
 
@@ -1559,15 +1573,15 @@
             <div class="card-grid-2">
                 <div class="card achievement-card">
                     <h3>Software & Databases</h3>
-                    <img src="img/image142.jpg" alt="Lu Lab software portal">
+                    <img src="img/software.webp" alt="Lu Lab software portal">
                     <div class="software-links">
-                        <a class="software-link" href="http://software.ncRNAlab.org" target="_blank">
+                        <a class="software-link" href="http://software.ncRNAlab.org" >
                             software.ncRNAlab.org
                         </a>
-                        <a class="software-link" href="https://cfOmics.ncRNAlab.org/" target="_blank">
+                        <a class="software-link" href="https://cfOmics.ncRNAlab.org/" >
                             cfOmics Database
                         </a>
-                        <a class="software-link" href="https://POSTAR.ncRNAlab.org/" target="_blank">
+                        <a class="software-link" href="https://POSTAR.ncRNAlab.org/" >
                             POSTAR3 Database
                         </a>
                     </div>
@@ -1605,7 +1619,7 @@
                     <span class="journal-tag">Bioinformatics 2024</span>
                     <span class="journal-tag">eLife 2022</span>
                 </div>
-                <br><a href="https://mkdocs.ncrnalab.org/publications/pub/" target="_blank">All Publications →</a>
+                <br><a href="https://mkdocs.ncrnalab.org/publications/pub/" >All Publications →</a>
 
             </div>
         </section>
@@ -1630,7 +1644,7 @@
                     </ul>
                     <p style="margin-top: 12px; font-size: 0.85rem; color: var(--text-muted);">
                         Andrew Gaudet, <em>A grad school survival guide</em>, Science 2015
-                        <a href="https://mkdocs.ncrnalab.org/faq/survival-guide/" target="_blank">[Read more]</a>
+                        <a href="https://mkdocs.ncrnalab.org/faq/survival-guide/" >[Read more]</a>
                     </p>
                 </div>
                 <div class="card resource-card">
@@ -1640,36 +1654,36 @@
                     </p>
                     <p style="font-style: italic; color: var(--text-muted);">
                         Want to get great at something? Get a coach! 
-                        <br>TED (16:36) <a href="https://www.ted.com/talks/atul_gawande_want_to_get_great_at_something_get_a_coach" target="_blank">[Watch]</a> Bilibili (2:50) <a href="https://www.bilibili.com/video/BV1Ts421A7w5" target="_blank">[Watch]</a>
+                        <br>TED (16:36) <a href="https://www.ted.com/talks/atul_gawande_want_to_get_great_at_something_get_a_coach" >[Watch]</a> Bilibili (2:50) <a href="https://www.bilibili.com/video/BV1Ts421A7w5" >[Watch]</a>
                     </p>
                 </div>
             </div>
 
             <h3 style="margin-top: 48px; margin-bottom: 20px;">Learning Resources</h3>
             <div class="resource-grid">
-                <a class="card" href="https://courses.ncRNAlab.org" target="_blank">
+                <a class="card" href="https://courses.ncRNAlab.org" >
                     <h4>📚 Courses</h4>
                     <p>courses.ncRNAlab.org</p>
                 </a>
-                <a class="card" href="https://book.ncRNAlab.org" target="_blank">
+                <a class="card" href="https://book.ncRNAlab.org" >
                     <h4>📖 Tutorial</h4>
                     <p>book.ncRNAlab.org</p>
                 </a>
-                <a class="card" href="https://docs.ncRNAlab.org" target="_blank">
+                <a class="card" href="https://docs.ncRNAlab.org" >
                     <h4>📝 Docs</h4>
                     <p>docs.ncRNAlab.org</p>
                 </a>
-                <a class="card" href="https://mkdocs.ncrnalab.org/faq/faq-1/" target="_blank">
+                <a class="card" href="https://mkdocs.ncrnalab.org/faq/faq-1/" >
                     <h4>❓ FAQ</h4>
                     <p>Frequently asked questions</p>
 
-                <a class="card" href="https://mkdocs.ncrnalab.org/reading/startup/" target="_blank">
+                <a class="card" href="https://mkdocs.ncrnalab.org/reading/startup/" >
                     <h4>🚀 Startup Reading</h4>
                     <p>For new lab members</p>
                 </a>
 
                 </a>
-                <a class="card" href="https://mkdocs.ncrnalab.org/projects/proj/" target="_blank">
+                <a class="card" href="https://mkdocs.ncrnalab.org/projects/proj/" >
                     <h4>🔬 Lab Projects</h4>
                     <p>Current research projects</p>
                 </a>
@@ -1684,8 +1698,8 @@
             </p>
             <a class="contact-email" href="mailto:lulab1@tsinghua.edu.cn">lulab1@tsinghua.edu.cn</a>
             <div class="contact-logos">
-                <img src="img/image160.png" alt="Tsinghua University">
-                <img src="img/image162.png" alt="Tsinghua emblem">
+                <img src="img/tsinghua.webp" alt="Tsinghua University">
+                <img src="img/labdocs.webp" alt="Lab Docs">
             </div>
         </section>
     </main>
