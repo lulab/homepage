@@ -1018,13 +1018,10 @@
             <p class="logo-subtext">Tsinghua University</p>
         </div>
 
-        <div class="search-container">
-            <input type="text" class="search-box" id="searchBar" placeholder="搜索页面内容...">
-        </div>
 
         <nav class="sidebar-menu">
             <div class="menu-section">
-                <span class="menu-section-title">章节导航</span>
+                <span class="menu-section-title">Navigation</span>
                 <a href="#home" class="menu-link active" data-chapter="0">Home</a>
                 <a href="#profile" class="menu-link" data-chapter="1">PI Profile</a>
                 <a href="#vision" class="menu-link" data-chapter="2">Vision</a>
@@ -1033,7 +1030,7 @@
                 <a href="#methodology" class="menu-link" data-chapter="5">Methodology</a>
                 <a href="#people" class="menu-link" data-chapter="6">People</a>
                 <a href="#achievements" class="menu-link" data-chapter="7">Achievements</a>
-                <a href="#resources" class="menu-link" data-chapter="8">Resources</a>
+                <a href="#resources" class="menu-link" data-chapter="8">Tips & Resources</a>
                 <a href="#contact" class="menu-link" data-chapter="9">Contact</a>
             </div>
         </nav>
@@ -1064,10 +1061,10 @@
                 理解生命 <strong>•</strong> 影响医学
             </p>
             <div class="hero-affiliations">
-                <span class="affiliation-tag">清华大学 Tsinghua University</span>
-                <span class="affiliation-tag">生命科学学院 School of Life Sciences</span>
-                <span class="affiliation-tag">生物信息学教育部重点实验室</span>
-                <span class="affiliation-tag">绿色生物制造全国重点实验室</span>
+                <span class="affiliation-tag">清华大学</span>
+                <span class="affiliation-tag">生命科学学院</span>
+                <span class="affiliation-tag">“生物信息学“教育部重点实验室</span>
+                <span class="affiliation-tag">“绿色生物制造“全国重点实验室</span>
             </div>
         </section>
 
@@ -1075,7 +1072,7 @@
         <section id="profile">
             <div class="section-label">Principal Investigator</div>
             <h2 class="section-title">鲁志 · Zhi John Lu</h2>
-            <p class="section-subtitle">青年长江学者，国家优秀青年 · 副教授，特别研究员，博士生导师</p>
+            <p class="section-subtitle">青年长江学者，国家优秀青年 ｜ 副教授，博士生导师</p>
 
             <div class="profile-grid">
                 <div>
@@ -1083,7 +1080,7 @@
                 </div>
                 <div class="card">
                     <h3 class="profile-name">鲁志</h3>
-                    <div class="profile-role">Lu Zhi, Ph.D. · Associate Professor</div>
+                    <div class="profile-role">Zhi John Lu, Ph.D. · Associate Professor</div>
                     <p>
                         Our lab focuses on advancing innovative <strong>bioinformatics</strong> technologies and practicing evidence-based <strong>precision medicine</strong> for complex diseases like cancer and autoimmune diseases.
                     </p>
@@ -1093,7 +1090,7 @@
                     <div class="timeline">
                         <div class="timeline-item">
                             <span class="timeline-date">2017–至今</span>
-                            <span>清华大学 生命科学学院 副教授，特别研究员，博士生导师</span>
+                            <span>清华大学 生命科学学院 副教授，博士生导师</span>
                         </div>
                         <div class="timeline-item">
                             <span class="timeline-date">2011–2016</span>
@@ -1169,7 +1166,7 @@
                         </ul>
                     </div>
                     <div>
-                        <p>和蛋白质相比，RNA 更“AI-friendly”，更有可能成为连接人工智能与生命科学的关键桥梁。</p>
+                        <p style="color: var(--accent-teal);">和蛋白质相比，RNA 更“AI-friendly”，更有可能成为连接人工智能与生命科学的关键桥梁。</p>
                         <p>RNA 特别适合三件事：</p>
                         <p style="font-size: 1.2rem; color: var(--accent-teal); font-weight: 700;">sensing + intervention + monitoring</p>
                     </div>
@@ -1178,7 +1175,8 @@
 
             <div class="quote-block">
                 “RNA, not DNA, is the computational engine of the cell.”<br>
-                “RNA 而不是 DNA 才是细胞的计算引擎。” — <em>Scientific American</em>, July 2024
+                <p class="profile-role">“RNA 而不是 DNA 才是细胞的计算引擎。”</p>
+                 — <em>Scientific American</em>, July 2024
             </div>
 
             <h3 style="margin-top: 48px; margin-bottom: 20px;">Closed-Loop Dynamic Framework</h3>
@@ -1219,8 +1217,9 @@
             <h2 class="section-title">RNA Finder · RNA Talk</h2>
             <p class="section-subtitle">
                 Two complementary programs sharing one long-term question: the RNA-mediated sensing and control of biological state.
+            <br><br><a href="https://mkdocs.ncrnalab.org/projects/proj/" target="_blank">Lab Projects →</a>
             </p>
-
+            
             <div class="feature-row">
                 <div class="feature-content">
                     <span class="tag teal">Sensing</span>
@@ -1233,9 +1232,7 @@
                         <li><strong>cfOmics</strong> — Integration of multi-omics data for precision medicine</li>
                         <li>Cell-of-origin deconvolution, pre-disease ecosystem signals, fragmentomics, cfRNA foundation model</li>
                     </ul>
-                    <p style="margin-top: 16px;">
-                        <a href="https://mkdocs.ncrnalab.org/projects/proj/" target="_blank">Lab Projects →</a>
-                    </p>
+                    
                 </div>
                 <div>
                     <img class="feature-image" src="img/image41.png" alt="RNA Finder research diagram">
@@ -1254,9 +1251,7 @@
                         <li><strong>OligoFormer</strong> — AI design of siRNAs targeting RNAs</li>
                         <li>RNA interactome, perturbation-aware models, dynamic delivery prediction, cell-state programmable RNA therapeutics</li>
                     </ul>
-                    <p style="margin-top: 16px;">
-                        <a href="http://software.ncRNAlab.org" target="_blank">Software →</a>
-                    </p>
+
                 </div>
                 <div>
                     <img class="feature-image" src="img/image32.png" alt="RNA Talk research diagram">
@@ -1269,17 +1264,16 @@
                     <div>
                         <h4 style="color: var(--accent-teal); margin-bottom: 12px;">RNAfinder</h4>
                         <ul>
-                            <li><strong>A1</strong> — cell-free & microbial RNA (cfRNA & mbRNA)</li>
-                            <li><strong>A2 [MED]</strong> — AI for Precision Medicine (with hospitals)</li>
-                            <li><strong>A2 [Structure]</strong> — AI for Ribozyme Design (with Structure lab)</li>
+                            <li><strong>A1</strong> — discoverying novel noncoding RNAs</li>
+                            <li><strong>A2 [MED]</strong> — AI for Precision Medicine</li>
+                            <li><strong>A2 [Structure]</strong> — AI for Ribozyme Design</li>
                         </ul>
                     </div>
                     <div>
                         <h4 style="color: var(--accent-purple); margin-bottom: 12px;">RNAtalk</h4>
                         <ul>
-                            <li><strong>B1</strong> — RNA-centered Interactome & AIVC</li>
-                            <li><strong>B2 [RNAi]</strong> — AI for RNAi Screen (with drug companies)</li>
-                            <li><strong>B2 [RNAdrug]</strong> — AI for ligand/siRNA design</li>
+                            <li><strong>B1 [RNAi]</strong> — AIVC & drug design based on RNAi</li>
+                            <li><strong>B2 [RNAdrug]</strong> — AI for small molecule drug design</li>
                         </ul>
                     </div>
                 </div>
@@ -1352,20 +1346,7 @@
                 </div>
             </div>
 
-            <div class="feature-row" style="margin-top: 48px;">
-                <div class="feature-content">
-                    <h3>AI Virtual Cell (AIVC)</h3>
-                    <p>
-                        A multi-scale & multimodal AI model of cell biology across molecular, cellular, and multicellular scales. The AIVC combines universal representations with virtual instruments to simulate and decode cell states in response to perturbations.
-                    </p>
-                    <p>
-                        <em>2024 Cell — How to build the virtual cell with artificial intelligence</em>
-                    </p>
-                </div>
-                <div>
-                    <img class="feature-image" src="img/image123.jpeg" alt="AI Virtual Cell">
-                </div>
-            </div>
+
         </section>
 
         <!-- Methodology -->
@@ -1468,27 +1449,27 @@
 
             <div class="stats-grid">
                 <div class="stat-card">
-                    <div class="stat-number">18</div>
+                    <div class="stat-number">20+</div>
                     <div class="stat-label">Ph.D. Graduates</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number">4</div>
+                    <div class="stat-number">5</div>
                     <div class="stat-label">M.S. Graduates</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number">4</div>
+                    <div class="stat-number">5</div>
                     <div class="stat-label">Postdocs Completed</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number">5</div>
+                    <div class="stat-number">6</div>
                     <div class="stat-label">National Scholarships</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number">70+</div>
+                    <div class="stat-number">80+</div>
                     <div class="stat-label">Publications</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number">20K+</div>
+                    <div class="stat-number">30K+</div>
                     <div class="stat-label">Citations</div>
                 </div>
             </div>
@@ -1570,7 +1551,7 @@
         <!-- Achievements -->
         <section id="achievements">
             <div class="section-label">Achievements</div>
-            <h2 class="section-title">Tools · Databases · Publications</h2>
+            <h2 class="section-title">Software · Databases · Publications</h2>
             <p class="section-subtitle">
                 发表成果：新型非编码 RNA 的算法工具、数据库网站和医学应用。
             </p>
@@ -1587,7 +1568,7 @@
                             cfOmics Database
                         </a>
                         <a class="software-link" href="https://POSTAR.ncRNAlab.org/" target="_blank">
-                            POSTAR3 — RBP / CLIP Database
+                            POSTAR3 Database
                         </a>
                     </div>
                 </div>
@@ -1602,15 +1583,15 @@
                         <li><strong>OligoFormer</strong> — AI design of siRNAs</li>
                     </ul>
                     <p style="margin-top: 16px; color: var(--text-muted);">
-                        5 patents · 3 software copyrights
+                        6 patents · 3 software copyrights
                     </p>
                 </div>
             </div>
 
             <div class="card" style="margin-top: 32px;">
-                <h3>Selected Publications</h3>
+                <h3>Publications</h3>
                 <p style="color: var(--text-secondary);">
-                    Lu Lab has published >70 papers in journals including <em>Science, Nature, Cell, PNAS, eLife, Nucleic Acids Research, Genome Biology, Bioinformatics</em>, with >20,000 citations.
+                    Lu Lab has published >80 papers in journals including <em>Science, Nature, Cell, PNAS, eLife, Nucleic Acids Research, Genome Biology, Bioinformatics</em>, with >30,000 citations.
                 </p>
                 <div class="journal-list">
                     <span class="journal-tag">Science 2010</span>
@@ -1624,16 +1605,18 @@
                     <span class="journal-tag">Bioinformatics 2024</span>
                     <span class="journal-tag">eLife 2022</span>
                 </div>
+                <br><a href="https://mkdocs.ncrnalab.org/publications/pub/" target="_blank">All Publications →</a>
+
             </div>
         </section>
 
         <!-- Resources / Tips -->
         <section id="resources">
             <div class="section-label">Tips</div>
-            <h2 class="section-title">格物致知 · 知行合一</h2>
             <p class="section-subtitle">
                 Tips, guidance & resources for lab members and visitors.
             </p>
+            <h3 style="margin-top: 48px; margin-bottom: 20px;">Guide & Tips</h3>
 
             <div class="card-grid-2">
                 <div class="card resource-card">
@@ -1647,6 +1630,7 @@
                     </ul>
                     <p style="margin-top: 12px; font-size: 0.85rem; color: var(--text-muted);">
                         Andrew Gaudet, <em>A grad school survival guide</em>, Science 2015
+                        <a href="https://mkdocs.ncrnalab.org/faq/survival-guide/" target="_blank">[Read more]</a>
                     </p>
                 </div>
                 <div class="card resource-card">
@@ -1655,7 +1639,8 @@
                         Critical thinking and peer review drive scientific progress. The same is true for personal growth. Even the most outstanding people benefit from a coach — someone who provides an external eye, helps identify problems, breaks down behavior, and guides rebuilding.
                     </p>
                     <p style="font-style: italic; color: var(--text-muted);">
-                        Want to get great at something? Get a coach!
+                        Want to get great at something? Get a coach! 
+                        <br>TED (16:36) <a href="https://www.ted.com/talks/atul_gawande_want_to_get_great_at_something_get_a_coach" target="_blank">[Watch]</a> Bilibili (2:50) <a href="https://www.bilibili.com/video/BV1Ts421A7w5" target="_blank">[Watch]</a>
                     </p>
                 </div>
             </div>
